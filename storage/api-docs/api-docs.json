@@ -1,0 +1,535 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API APP",
+        "description": "API Documentation",
+        "contact": {
+            "email": "chiranad@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Register"
+                ],
+                "summary": "Student Register",
+                "operationId": "register",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "successfully register"
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "payload": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "int",
+                                                    "example": "1"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "chiran"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "chiran1@gmail.com"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-01-13T18:16:24.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-01-13T18:16:24.000000Z"
+                                                },
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "12|wA5KIi8F8e6BBdW79NWw1iPXJ3Xy4YeaArlc84r7"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "format": "query"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Login",
+                "operationId": "login",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "successfully login"
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "payload": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "int",
+                                                    "example": "1"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "chiran"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "chiran1@gmail.com"
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "example": "null"
+                                                },
+                                                "status": {
+                                                    "type": "int",
+                                                    "example": "1"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-01-13T18:16:24.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-01-13T18:16:24.000000Z"
+                                                },
+                                                "token": {
+                                                    "type": "string",
+                                                    "example": "12|wA5KIi8F8e6BBdW79NWw1iPXJ3Xy4YeaArlc84r7"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "format": "query"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/courses": {
+            "get": {
+                "tags": [
+                    "Courses"
+                ],
+                "summary": "Courses",
+                "requestBody": {
+                    "description": "Courses list",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "message": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    },
+                                    "payload": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "int",
+                                                    "example": ""
+                                                },
+                                                "code": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "example": [
+                                            {
+                                                "id": 1,
+                                                "code": "059-209-6781",
+                                                "name": "IT",
+                                                "description": "IT",
+                                                "created_at": "2022-01-13T19:00:17.000000Z",
+                                                "updated_at": "2022-01-13T19:00:17.000000Z"
+                                            },
+                                            {
+                                                "id": 1,
+                                                "code": "059-209-6781",
+                                                "name": "English",
+                                                "description": "English",
+                                                "created_at": "2022-01-13T19:00:17.000000Z",
+                                                "updated_at": "2022-01-13T19:00:17.000000Z"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/api/student-courses": {
+            "get": {
+                "tags": [
+                    "Student Courses"
+                ],
+                "summary": "Student Courses",
+                "requestBody": {
+                    "description": "Student Courses list",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "message": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    },
+                                    "payload": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "int",
+                                                    "example": ""
+                                                },
+                                                "code": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "example": [
+                                            {
+                                                "id": 1,
+                                                "code": "059-209-6781",
+                                                "name": "IT",
+                                                "description": "IT",
+                                                "created_at": "2022-01-13T19:00:17.000000Z",
+                                                "updated_at": "2022-01-13T19:00:17.000000Z"
+                                            },
+                                            {
+                                                "id": 1,
+                                                "code": "059-209-6781",
+                                                "name": "English",
+                                                "description": "English",
+                                                "created_at": "2022-01-13T19:00:17.000000Z",
+                                                "updated_at": "2022-01-13T19:00:17.000000Z"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/courses/enroll": {
+            "post": {
+                "tags": [
+                    "Enrollement"
+                ],
+                "summary": "Enroll Courses",
+                "operationId": "enroll",
+                "parameters": [
+                    {
+                        "name": "course_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "int"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "successfully register"
+                                        },
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "payload": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "int",
+                                                    "example": "1"
+                                                },
+                                                "code": {
+                                                    "type": "string",
+                                                    "example": "327-829-8548"
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "IT"
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "example": "Rem quos esse est voluptates rerum"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2022-01-13T18:16:24.000000Z"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2022-01-13T18:16:24.000000Z"
+                                                }
+                                            },
+                                            "type": "object",
+                                            "format": "query"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/students": {
+            "get": {
+                "tags": [
+                    "Students"
+                ],
+                "summary": "Students",
+                "requestBody": {
+                    "description": "Students list",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "message": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "success": {
+                                        "type": "boolean",
+                                        "example": "true"
+                                    },
+                                    "payload": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "int",
+                                                    "example": ""
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "status": {
+                                                    "type": "int",
+                                                    "example": ""
+                                                },
+                                                "email_verified_at": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": ""
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "example": [
+                                            {
+                                                "id": 1,
+                                                "name": "chiran",
+                                                "email": "chiran@gmail.com",
+                                                "email_verified_at": "null",
+                                                "status": "1",
+                                                "created_at": "2022-01-13T19:00:17.000000Z",
+                                                "updated_at": "2022-01-13T19:00:17.000000Z"
+                                            },
+                                            {
+                                                "id": 1,
+                                                "name": "chiran2",
+                                                "email": "chiran2@gmail.com",
+                                                "email_verified_at": "null",
+                                                "status": "1",
+                                                "created_at": "2022-01-13T19:00:17.000000Z",
+                                                "updated_at": "2022-01-13T19:00:17.000000Z"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "responses": {
+            "401": {
+                "description": "Unauthenticated"
+            },
+            "400": {
+                "description": "Bad Request"
+            },
+            "404": {
+                "description": "not found"
+            },
+            "403": {
+                "description": "Forbidden"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
